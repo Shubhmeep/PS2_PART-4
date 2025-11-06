@@ -32,6 +32,17 @@ This notebook provides a clean environment to use the fully trained model for sp
 * **Speech Generation:** Takes any arbitrary Dutch text input and uses the model to synthesize the corresponding speech.
 * **Evaluation:** Outputs playable audio samples directly in the notebook, allowing for immediate evaluation of the model's performance.
 
+### Speaker Similarity (SS) Evaluation
+
+The `inference.ipynb` notebook also supports an optional evaluation step using a **Speaker Similarity (SS)** metric.  
+For each sentence in the Dutch test split, we:
+- Extract a speaker embedding from the original audio,
+- Generate the same sentence with our TTS model,
+- Extract a speaker embedding from the generated audio and compute **cosine similarity**.
+
+We obtained a **mean SS score of about 0.9**, which shows that, even though the audio quality is still a bit rough, the model usually preserves the target **speaker identity** quite well.
+
+
 ## 🔊 Note on Inference and Replication
 
 While the `inference.ipynb` notebook details the code used for speech synthesis, live replication of this process within the current environment is not feasible.
